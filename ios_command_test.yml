@@ -1,0 +1,16 @@
+---
+
+- name: run show version on remote devices
+  cisco.ios.ios_command:
+    commands: show version
+
+- name: run show version and check to see if output contains IOS
+  cisco.ios.ios_command:
+    commands: show version
+    wait_for: result[0] contains IOS
+
+- name: run multiple commands on remote nodes
+  cisco.ios.ios_command:
+    commands:
+    - show version
+    - show interfaces
