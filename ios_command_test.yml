@@ -5,16 +5,16 @@
   gather_facts: false
   tasks:
     - name: run show version on remote devices
-      cli_command:
+      cisco.ios.ios_command:
         command: show version
 
     - name: run show version and check to see if output contains IOS
-      cli_command:
+      cisco.ios.ios_command:
         command: show version
         wait_for: result[0] contains IOS
 
     - name: run multiple commands on remote nodes
-      cli_command:
+      cisco.ios.ios_command:
         command:
         - show version
         - show interfaces
